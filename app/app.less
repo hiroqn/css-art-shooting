@@ -1,0 +1,32 @@
+@displayWidth: 1280px;
+@displayHeight: 800px;
+
+body {
+  height: 100%;
+}
+
+.screen {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -@displayWidth / 2;
+  margin-top: -@displayHeight / 2;
+  width: @displayWidth;
+  height: @displayHeight;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.view {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform-style: preserve-3d;
+  transform-origin: left top;
+  transform: translateZ(1000px);
+}
+
+.space {
+  transform-style: preserve-3d;
+  transform-origin: left top;
+}
