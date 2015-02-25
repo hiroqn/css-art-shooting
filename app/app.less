@@ -14,7 +14,7 @@ body {
   width: @displayWidth;
   height: @displayHeight;
   transform-style: preserve-3d;
-  perspective: 1000px;
+  perspective: @displayWidth;
 }
 
 .view {
@@ -23,10 +23,34 @@ body {
   left: 50%;
   transform-style: preserve-3d;
   transform-origin: left top;
-  transform: translateZ(1000px);
+  transform: translateZ(@displayWidth);
 }
 
 .space {
   transform-style: preserve-3d;
   transform-origin: left top;
+}
+
+.jiku {
+  transform-style: preserve-3d;
+  position: absolute;
+  transform: translateX(-@displayWidth);
+//  animation: spin 2s linear 0s infinite;
+}
+
+.box {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  transform: translateZ(-@displayWidth);
+  background-color: #6bffcd;
+}
+
+@keyframes spin {
+  from {
+    transform: translateX(-@displayWidth) rotateY(0deg);
+  }
+  to {
+    transform: translateX(-@displayWidth) rotateY(360deg);
+  }
 }
