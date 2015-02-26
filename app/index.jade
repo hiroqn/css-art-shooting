@@ -7,7 +7,10 @@ html
     title= 'Shooting!'
     link(rel='stylesheet', href='/app.css')
   body
+    - var n = 0
     .screen
       .view
-        .jiku
-          .box
+        .axis
+          while n < 8
+            //.text(data-rotate-y= n * 45)= '404 Not Found'
+            .box(data-rotate-y= n++ * 45)= ''

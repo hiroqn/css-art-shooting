@@ -15,6 +15,7 @@ body {
   height: @displayHeight;
   transform-style: preserve-3d;
   perspective: @displayWidth;
+  background-color: #ddd;
 }
 
 .view {
@@ -31,26 +32,40 @@ body {
   transform-origin: left top;
 }
 
-.jiku {
+.axis {
   transform-style: preserve-3d;
   position: absolute;
-  transform: translateX(-@displayWidth);
-//  animation: spin 2s linear 0s infinite;
+  transform: translate3d(-@displayWidth / 2, 0, 0);
+//  animation: spin 8s linear 0s infinite;
 }
 
+.text {
+
+  transform: translateZ(-@displayWidth);
+  position: absolute;
+}
 .box {
   position: absolute;
   width: 100px;
   height: 100px;
-  transform: translateZ(-@displayWidth);
   background-color: #6bffcd;
 }
 
+.make-rotate(@i) when (@i > 0){
+  .make-rotate(@i - 1);
+  @deg: @i * 45;
+  [data-rotate-y="@{deg}"] {
+    transform: rotateY(@i * 45deg) translateZ(-@displayWidth);
+
+  }
+}
+
+.make-rotate(8);
 @keyframes spin {
   from {
-    transform: translateX(-@displayWidth) rotateY(0deg);
+    transform: translateX(-@displayWidth / 2) rotateY(360deg);
   }
   to {
-    transform: translateX(-@displayWidth) rotateY(360deg);
+    transform: translateX(-@displayWidth / 2) rotateY(0deg);
   }
 }
