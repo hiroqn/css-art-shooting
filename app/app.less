@@ -44,6 +44,7 @@ body {
   transform: translateZ(-@displayWidth);
   position: absolute;
 }
+
 .box {
   position: absolute;
   width: 100px;
@@ -53,14 +54,13 @@ body {
 
 .make-rotate(@i) when (@i > 0){
   .make-rotate(@i - 1);
-  @deg: @i * 45;
-  [data-rotate-y="@{deg}"] {
-    transform: rotateY(@i * 45deg) translateZ(-@displayWidth);
+  [data-rotate-y="@{i}"] {
+    transform: rotateY(@i * 22.5deg) translateZ(-@displayWidth);
 
   }
 }
 
-.make-rotate(8);
+.make-rotate(16);
 @keyframes spin {
   from {
     transform: translateX(-@displayWidth / 2) rotateY(360deg);
