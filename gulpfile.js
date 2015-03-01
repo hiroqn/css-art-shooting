@@ -33,7 +33,7 @@ gulp.task('jade', function () {
     .pipe(gulp.dest('dist'));
 });
 
-gulp.task('serve', ['jade', 'styles'], function () {
+gulp.task('serve', ['jade', 'styles'], function (cb) {
   var browserSync = require('browser-sync');
   browserSync({
     files: '{.tmp,dist}/**/*',
@@ -41,7 +41,7 @@ gulp.task('serve', ['jade', 'styles'], function () {
       baseDir: ['dist']
     },
     open: true
-  });
+  }, cb);
   gulp.watch(['app/**/*.jade'], ['jade',  browserSync.reload]);
   gulp.watch(['app/**/*.less'], ['styles', browserSync.reload]);
 });
