@@ -15,7 +15,8 @@ body {
   height: @displayHeight;
   transform-style: preserve-3d;
   perspective: @displayWidth;
-  background-color: #ddd;
+//  background-color: #ddd;
+  overflow: hidden;
 }
 
 .view {
@@ -35,12 +36,11 @@ body {
 .axis {
   transform-style: preserve-3d;
   position: absolute;
-  transform: translate3d(-@displayWidth / 2, 0, 0);
-//  animation: spin 8s linear 0s infinite;
+  transform: translate3d(-@displayWidth * 1.5, 0,  -@displayWidth / 2);
+//  animation: spin-axis 8s linear 0s infinite;
 }
 
 .text {
-
   transform: translateZ(-@displayWidth);
   position: absolute;
 }
@@ -54,18 +54,18 @@ body {
 
 .make-rotate(@i) when (@i > 0){
   .make-rotate(@i - 1);
-  [data-rotate-y="@{i}"] {
-    transform: rotateY(@i * 22.5deg) translateZ(-@displayWidth);
+  [data-position="@{i}"] {
+    transform: rotateY(@i * 22.5deg) translateZ(-@displayWidth * 1.5);
 
   }
 }
 
 .make-rotate(16);
-@keyframes spin {
+@keyframes spin-axis {
   from {
-    transform: translateX(-@displayWidth / 2) rotateY(360deg);
+    transform: translate3d(-@displayWidth * 1.5, 0,  -@displayWidth / 2) rotateY(360deg);
   }
   to {
-    transform: translateX(-@displayWidth / 2) rotateY(0deg);
+    transform: translate3d(-@displayWidth * 1.5, 0,  -@displayWidth / 2) rotateY(0deg);
   }
 }

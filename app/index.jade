@@ -12,5 +12,6 @@ html
       .view
         .axis
           while n < 16
-            //.text(data-rotate-y= n * 45)= '404 Not Found'
-            .box(data-rotate-y= n++)= ''
+            label(for='text' + n)
+              .box(id='text' + n, data-position= n++)= '404 Not Found'
+            .box()= ''
