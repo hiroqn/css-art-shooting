@@ -52,10 +52,10 @@ body {
   background-color: #6bffcd;
 }
 
-.make-rotate(@i) when (@i > 0){
+.make-rotate(@i) when (@i >= 0){
   .make-rotate(@i - 1);
   [data-position="@{i}"] {
-    transform: rotateY(@i * 22.5deg) translateZ(-@displayWidth * 1.5);
+    transform: rotateY(@i * 22.5deg) translateX(@displayWidth * 1.5);
 
   }
 }
