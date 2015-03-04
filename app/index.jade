@@ -13,5 +13,6 @@ html
         .axis
           while n < 16
             label(for='text' + n)
-              .box(id='text' + n, data-position= n++)= '404 Not Found'
-            .box()= ''
+              .text(data-position= n)= '404 Not Found'
+            input(id='text' + n++, type='checkbox')
+
