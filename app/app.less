@@ -48,12 +48,11 @@ body {
 
 input[type="checkbox"] {
   display: none;
-  
 }
 .make-rotate(@i) when (@i >= 0){
   .make-rotate(@i - 1);
   [data-position="@{i}"] {
-    transform: rotateY(@i * 22.5deg) translate3d(@displayWidth * 1.5, 0, 0);
+    transform: rotateY(@i * 22.5deg) translate3d(@displayWidth * 1.5, @i * 200px, 0);
   }
 }
 
