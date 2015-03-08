@@ -59,9 +59,9 @@ input[type="checkbox"] {
 .make-rotate(16);
 @keyframes spin-axis {
   from {
-    transform: translate3d(-@displayWidth * 1.5, 0,  -@displayWidth / 2) rotateY(360deg);
+    transform: translate3d(-@displayWidth * 1.5, @displayHeight * 4,  -@displayWidth / 2) rotateY(0deg);
   }
   to {
-    transform: translate3d(-@displayWidth * 1.5, 0,  -@displayWidth / 2) rotateY(0deg);
+    transform: translate3d(-@displayWidth * 1.5, 0,  -@displayWidth / 2) rotateY(360deg);
   }
 }
