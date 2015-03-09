@@ -20,6 +20,16 @@ body {
   overflow: hidden;
 }
 
+.counter {
+  position: absolute;
+  top: 2em;
+  right: 2em;
+}
+.counter:before {
+  content: counter(shootCount);
+  font-size: 4em;
+}
+
 .view {
   position: absolute;
   top: 50%;
@@ -36,23 +46,42 @@ body {
 
 .axis {
   transform-style: preserve-3d;
+  transform-origin: left top;
   position: absolute;
-  transform: translate3d(-@displayWidth * 1.5, 0,  -@displayWidth / 2);
-//  animation: spin-axis 8s linear 0s infinite;
+  transform: translate3d(-@displayWidth * 1.5, 0,  -@displayWidth / 2) rotateY(360deg);
+  animation: spin-axis 32s linear 0s 1;
+  animation-fill-mode: forwards;
 }
 
 .text {
   position: absolute;
-  background-color: #6bffcd;
+  white-space: nowrap;
+  font-weight: bold;
+  font-size: 2em;
+  transform-origin: left top;
+  transition: text-shadow .5s cubic-bezier(0.25, 0.8, 0.25, 1) 0s;
+  user-select: none;
+  text-shadow: 0 0 0;
 }
 
 input[type="checkbox"] {
-  display: none;
+  position: absolute;
+  visibility: hidden;
 }
+
+input[type="checkbox"]:checked {
+  counter-increment: shootCount;
+}
+
+input[type="checkbox"]:checked + .text {
+  color: transparent;
+  text-shadow: 0 0 1em;
+}
+
 .make-rotate(@i) when (@i >= 0){
   .make-rotate(@i - 1);
   [data-position="@{i}"] {
-    transform: rotateY(@i * 22.5deg) translate3d(@displayWidth * 1.5, @i * 200px, 0);
+    transform: rotateY(@i * 22.5deg) translate3d(@displayWidth * 1.5, @i * -@displayHeight / 4, 0);
   }
 }
 
