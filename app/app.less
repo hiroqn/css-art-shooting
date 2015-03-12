@@ -4,7 +4,8 @@
 body {
   height: 100%;
   counter-reset: shootCount;
-  background-color: #ddd;
+  background-color: #333;
+  color: #eee;
 }
 
 .screen {
@@ -76,7 +77,7 @@ input[type="checkbox"]:checked {
 
 input[type="checkbox"]:checked + .text {
   color: transparent;
-  text-shadow: 0 0 1em;
+  text-shadow: 0 0 1em #333;
 }
 
 .make-rotate(@i) when (@i >= 0){
