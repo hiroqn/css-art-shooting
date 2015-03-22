@@ -4,7 +4,7 @@
   "description": "art",
   "author": "hiroqn",
   "license": "MIT",
-  "dependencies": {
+  "devDependencies": {
     "browser-sync": "^2.2.1",
     "gulp": "^3.8.11",
     "gulp-autoprefixer": "^2.1.0",
