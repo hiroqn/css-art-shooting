@@ -4,6 +4,10 @@ var gulp = require('gulp');
 var $ = require('gulp-load-plugins')();
 var browserSync = require('browser-sync');
 
+var exec = require('child_process').exec;
+var spawn = require('child_process').spawn;
+var path = require('path');
+
 var AUTOPREFIXER_BROWSERS = [
   'ie >= 10',
   'ie_mob >= 10',
@@ -49,7 +53,7 @@ gulp.task('serve', ['jade', 'styles'], function (cb) {
 
 // Deployment to GitHub using git.
 gulp.task('deploy', ['default'], function (done) {
-  runSequence('deploy:commit', 'deploy:push', done);
+  // runSequence('deploy:commit', 'deploy:push', done);
 });
 
 // Commit changes to production build locally.
